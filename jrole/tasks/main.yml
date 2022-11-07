@@ -1,2 +1,13 @@
 ---
 # tasks file for jrole
+- name: i want to install java 8 on ubuntu
+  apt: 
+         name: "{{myjavapackforubuntu}}"
+         state: present 
+  When : ansible_os_family=="Debian"
+
+- name: i want to install java 8 on Redhat
+  yum:
+          name: "{{myjavapackforRedhat}}"
+          state: present
+  When : ansible_os_family=="RedHat"
